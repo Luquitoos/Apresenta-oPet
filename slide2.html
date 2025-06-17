@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visão Geral do Projeto</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #333;
+        }
+        .content {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #444;
+        }
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+        .header-line {
+            height: 5px;
+            background: linear-gradient(90deg, #70B489 0%, #DD6C49 50%, #F3BF49 100%);
+            width: 100%;
+        }
+        .bullet-icon {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            margin-right: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        .answer-circle {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid rgba(112, 180, 137, 0.5);
+            display: inline-block;
+            margin: 0 3px;
+        }
+        .answer-circle.filled {
+            background-color: #DD6C49;
+            border-color: #DD6C49;
+        }
+        .grid-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(112, 180, 137, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(112, 180, 137, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            z-index: 0;
+        }
+        .topic-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .topic-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        .topic-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #70B489, #DD6C49, #F3BF49);
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <!-- Padrão de fundo -->
+        <div class="grid-pattern"></div>
+        
+        <!-- Cabeçalho colorido -->
+        <div class="header-line"></div>
+        
+        <!-- Elementos decorativos de fundo -->
+        <div class="bubble" style="width: 180px; height: 180px; background-color: rgba(112, 180, 137, 0.12); top: -30px; right: -40px;"></div>
+        <div class="bubble" style="width: 150px; height: 150px; background-color: rgba(243, 191, 73, 0.12); bottom: -30px; left: -40px;"></div>
+        
+        <!-- Padrão de gabarito decorativo -->
+        <div class="absolute right-8 bottom-24 transform -rotate-6 opacity-20">
+            <div class="flex flex-col">
+                <div class="flex mb-1">
+                    <div class="answer-circle filled"></div>
+                    <div class="answer-circle"></div>
+                    <div class="answer-circle"></div>
+                    <div class="answer-circle"></div>
+                </div>
+                <div class="flex mb-1">
+                    <div class="answer-circle"></div>
+                    <div class="answer-circle filled"></div>
+                    <div class="answer-circle"></div>
+                    <div class="answer-circle"></div>
+                </div>
+                <div class="flex mb-1">
+                    <div class="answer-circle"></div>
+                    <div class="answer-circle"></div>
+                    <div class="answer-circle filled"></div>
+                    <div class="answer-circle"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Conteúdo principal -->
+        <div class="flex flex-col flex-grow h-0 py-8 px-2 md:px-8 max-w-7xl lg:max-w-full w-full mx-auto relative z-10" style="min-height:0;">
+            <!-- Título da seção -->
+            <div class="mb-12 flex items-center">
+                <h1 class="title text-6xl" style="color: #333;">Visão Geral do Projeto</h1>
+                <div class="ml-6 h-2 w-96" style="background: linear-gradient(90deg, #70B489, #DD6C49);"></div>
+            </div>
+            
+            <!-- Conteúdo com cards -->
+            <div class="content flex-grow grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="topic-card p-10">
+                    <div class="flex items-start">
+                        <div class="bullet-icon mr-8 w-20 h-20" style="background-color: rgba(112, 180, 137, 0.2); font-size: 2.5rem;">
+                            <i class="fas fa-bullseye" style="color: #70B489;"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl font-bold mb-4" style="color: #70B489;">Objetivo</h3>
+                            <p class="text-2xl">Automatizar e agilizar a correção dos gabaritos e o gerenciamento dos resultados da Olimpíada Cearense de Informática.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="topic-card p-10">
+                    <div class="flex items-start">
+                        <div class="bullet-icon mr-8 w-20 h-20" style="background-color: rgba(221, 108, 73, 0.2); font-size: 2.5rem;">
+                            <i class="fas fa-users" style="color: #DD6C49;"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl font-bold mb-4" style="color: #DD6C49;">Contexto</h3>
+                            <p class="text-2xl">Necessidade de uma ferramenta confiável para participantes, professores e organizadores, otimizando o tempo de processamento e garantindo precisão nos resultados.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="topic-card p-10">
+                    <div class="flex items-start">
+                        <div class="bullet-icon mr-8 w-20 h-20" style="background-color: rgba(243, 191, 73, 0.2); font-size: 2.5rem;">
+                            <i class="fas fa-hand-pointer" style="color: #F3BF49;"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl font-bold mb-4" style="color: #F3BF49;">Foco</h3>
+                            <p class="text-2xl">Usabilidade, robustez e flexibilidade para múltiplos perfis de usuários, com interfaces adaptadas para cada papel na competição.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="topic-card p-10">
+                    <div class="flex items-start">
+                        <div class="bullet-icon mr-8 w-20 h-20" style="background-color: rgba(112, 180, 137, 0.2); font-size: 2.5rem;">
+                            <i class="fas fa-check-double" style="color: #70B489;"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl font-bold mb-4" style="color: #70B489;">Resultados</h3>
+                            <p class="text-2xl">Sistema completo com funcionalidades de leitura automática de gabaritos, gerenciamento de participantes e provas, e dashboards personalizados.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Rodapé com logotipo -->
+            <div class="flex justify-between items-center mt-12">
+                <div class="text-xl text-gray-500">
+                    Olimpíada Cearense de Informática
+                </div>
+                <div class="text-2xl">
+                    <span class="font-bold" style="color: #70B489;">OCI</span><span class="font-bold" style="color: #DD6C49;">Key</span>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Navegação entre slides -->
+  <button id="prevBtn" style="position:fixed;left:24px;top:50%;transform:translateY(-50%);opacity:0.2;z-index:1000;font-size:2.5rem;border:none;background:none;cursor:pointer;">&#8592;</button>
+  <button id="nextBtn" style="position:fixed;right:24px;top:50%;transform:translateY(-50%);opacity:0.2;z-index:1000;font-size:2.5rem;border:none;background:none;cursor:pointer;">&#8594;</button>
+  <script>
+    // Identifica o slide atual pelo nome do arquivo
+    const slides = [
+      'slide1.html',
+      'slide2.html',
+      'slide3.html',
+      'slide4.html',
+      'slide5.html',
+      'slide6.html',
+      'slide7.html',
+      'slide8.html',
+    ];
+    const current = slides.findIndex(s => window.location.pathname.endsWith(s));
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    if (current > 0) prevBtn.style.display = 'block';
+    if (current < slides.length - 1) nextBtn.style.display = 'block';
+    prevBtn && (prevBtn.onclick = () => window.location.href = slides[current - 1]);
+    nextBtn && (nextBtn.onclick = () => window.location.href = slides[current + 1]);
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft' && current > 0) window.location.href = slides[current - 1];
+      if (e.key === 'ArrowRight' && current < slides.length - 1) window.location.href = slides[current + 1];
+    });
+  </script>
+</body>
+</html>

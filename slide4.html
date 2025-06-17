@@ -1,0 +1,232 @@
+d<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backend: Estrutura & Tecnologias</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #333;
+        }
+        .content {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #444;
+        }
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+        .header-line {
+            height: 5px;
+            background: linear-gradient(90deg, #70B489 0%, #DD6C49 50%, #F3BF49 100%);
+            width: 100%;
+        }
+        .bullet-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+        .bullet-icon {
+            flex-shrink: 0;
+            width: 32px;
+            height: 32px;
+            margin-right: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        .tech-chip {
+            display: inline-flex;
+            align-items: center;
+            background-color: #f0f0f0;
+            border-radius: 16px;
+            padding: 3px 10px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .tech-icon {
+            margin-right: 5px;
+        }
+        .code-block {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            border-radius: 6px;
+            padding: 10px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            margin-top: 8px;
+        }
+        .grid-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(112, 180, 137, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(112, 180, 137, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <!-- Padrão de fundo -->
+        <div class="grid-pattern"></div>
+        
+        <!-- Cabeçalho colorido -->
+        <div class="header-line"></div>
+        
+        <!-- Elementos decorativos de fundo -->
+        <div class="bubble" style="width: 180px; height: 180px; background-color: rgba(112, 180, 137, 0.12); top: -30px; right: -40px;"></div>
+        <div class="bubble" style="width: 150px; height: 150px; background-color: rgba(243, 191, 73, 0.12); bottom: -30px; left: -40px;"></div>
+        
+        <!-- Conteúdo principal -->
+        <div class="flex flex-col flex-grow h-0 py-8 px-2 md:px-8 max-w-7xl lg:max-w-full w-full mx-auto relative z-10" style="min-height:0;">
+            <!-- Título da seção -->
+            <div class="mb-12 flex items-center">
+                <i class="fas fa-server text-6xl mr-8" style="color: #DD6C49;"></i>
+                <h1 class="title text-6xl" style="color: #333;">Backend: Estrutura & Tecnologias</h1>
+                <div class="ml-8 h-2 w-96" style="background: linear-gradient(90deg, #DD6C49, #F3BF49);"></div>
+            </div>
+            
+            <!-- Stack de tecnologias -->
+            <div class="mb-10">
+                <h2 class="text-3xl font-semibold mb-6" style="color: #70B489;">Stack Tecnológico</h2>
+                <div class="flex flex-wrap gap-6">
+                    <div class="tech-chip text-xl py-3 px-8">
+                        <i class="fab fa-node-js tech-icon text-2xl mr-3" style="color: #70B489;"></i>
+                        <span>Node.js</span>
+                    </div>
+                    <div class="tech-chip text-xl py-3 px-8">
+                        <i class="fas fa-server tech-icon text-2xl mr-3" style="color: #DD6C49;"></i>
+                        <span>Express.js</span>
+                    </div>
+                    <div class="tech-chip text-xl py-3 px-8">
+                        <i class="fas fa-database tech-icon text-2xl mr-3" style="color: #F3BF49;"></i>
+                        <span>PostgreSQL</span>
+                    </div>
+                    <div class="tech-chip text-xl py-3 px-8">
+                        <i class="fas fa-key tech-icon text-2xl mr-3" style="color: #70B489;"></i>
+                        <span>JWT</span>
+                    </div>
+                    <div class="tech-chip text-xl py-3 px-8">
+                        <i class="fas fa-file-upload tech-icon text-2xl mr-3" style="color: #DD6C49;"></i>
+                        <span>Multer</span>
+                    </div>
+                    <div class="tech-chip text-xl py-3 px-8">
+                        <i class="fas fa-code tech-icon text-2xl mr-3" style="color: #F3BF49;"></i>
+                        <span>C++ Addon</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Conteúdo com bullets -->
+            <div class="content flex-grow grid grid-cols-1 gap-10">
+                <div class="bullet-item text-4xl mb-12">
+                    <div class="bullet-icon w-28 h-28 mr-12 flex items-center justify-center" style="background-color: rgba(112, 180, 137, 0.2); font-size: 3.5rem;">
+                        <i class="fas fa-cogs" style="color: #70B489;"></i>
+                    </div>
+                    <div>
+                        <strong style="color: #70B489;">Estrutura em Camadas:</strong> API Express.js organizada em controllers, services e models, seguindo boas práticas de desenvolvimento e padrões RESTful.
+                    </div>
+                </div>
+                
+                <div class="bullet-item text-4xl mb-12">
+                    <div class="bullet-icon w-28 h-28 mr-12 flex items-center justify-center" style="background-color: rgba(221, 108, 73, 0.2); font-size: 3.5rem;">
+                        <i class="fas fa-image" style="color: #DD6C49;"></i>
+                    </div>
+                    <div>
+                        <strong style="color: #DD6C49;">Processamento de Imagens:</strong> Integração com biblioteca C++ nativa via Node-API (N-API) para leitura otimizada de gabaritos, proporcionando alta performance.
+                        <div class="code-block text-2xl mt-6">
+                            // Exemplo de chamada ao módulo C++<br>
+                            const resultado = addon.readImagePath(imagePath);
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bullet-item text-4xl mb-12">
+                    <div class="bullet-icon w-28 h-28 mr-12 flex items-center justify-center" style="background-color: rgba(243, 191, 73, 0.2); font-size: 3.5rem;">
+                        <i class="fas fa-user-shield" style="color: #F3BF49;"></i>
+                    </div>
+                    <div>
+                        <strong style="color: #F3BF49;">Autenticação & Autorização:</strong> Sistema JWT com perfis de acesso (aluno, professor, admin), middleware de proteção de rotas e validação de permissões em cada endpoint.
+                    </div>
+                </div>
+                
+                <div class="bullet-item text-4xl mb-12">
+                    <div class="bullet-icon w-28 h-28 mr-12 flex items-center justify-center" style="background-color: rgba(112, 180, 137, 0.2); font-size: 3.5rem;">
+                        <i class="fas fa-shield-alt" style="color: #70B489;"></i>
+                    </div>
+                    <div>
+                        <strong style="color: #70B489;">Segurança & Robustez:</strong> Rate limiting, validação de dados com Joi, hash de senhas com bcrypt, limpeza automática de arquivos temporários e healthchecks para monitoramento.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Rodapé com logotipo -->
+            <div class="flex justify-between items-center mt-12">
+                <div class="text-xl text-gray-500">
+                    Olimpíada Cearense de Informática
+                </div>
+                <div class="text-2xl">
+                    <span class="font-bold" style="color: #70B489;">OCI</span><span class="font-bold" style="color: #DD6C49;">Key</span>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Navegação entre slides -->
+  <button id="prevBtn" style="position:fixed;left:24px;top:50%;transform:translateY(-50%);opacity:0.2;z-index:1000;font-size:2.5rem;border:none;background:none;cursor:pointer;">&#8592;</button>
+  <button id="nextBtn" style="position:fixed;right:24px;top:50%;transform:translateY(-50%);opacity:0.2;z-index:1000;font-size:2.5rem;border:none;background:none;cursor:pointer;">&#8594;</button>
+  <script>
+    // Identifica o slide atual pelo nome do arquivo
+    const slides = [
+      'slide1.html',
+      'slide2.html',
+      'slide3.html',
+      'slide4.html',
+      'slide5.html',
+      'slide6.html',
+      'slide7.html',
+      'slide8.html',
+    ];
+    const current = slides.findIndex(s => window.location.pathname.endsWith(s));
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    if (current > 0) prevBtn.style.display = 'block';
+    if (current < slides.length - 1) nextBtn.style.display = 'block';
+    prevBtn && (prevBtn.onclick = () => window.location.href = slides[current - 1]);
+    nextBtn && (nextBtn.onclick = () => window.location.href = slides[current + 1]);
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft' && current > 0) window.location.href = slides[current - 1];
+      if (e.key === 'ArrowRight' && current < slides.length - 1) window.location.href = slides[current + 1];
+    });
+  </script>
+</body>
+</html>

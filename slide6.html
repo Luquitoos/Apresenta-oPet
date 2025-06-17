@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Containerização & Implantação</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8f9fa;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            min-width: 0;
+            min-height: 0;
+            position: relative;
+            background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #333;
+        }
+        .content {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #444;
+        }
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+        .header-line {
+            height: 5px;
+            background: linear-gradient(90deg, #70B489 0%, #DD6C49 50%, #F3BF49 100%);
+            width: 100%;
+        }
+        .bullet-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+        .bullet-icon {
+            flex-shrink: 0;
+            width: 32px;
+            height: 32px;
+            margin-right: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        .answer-circle {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid rgba(112, 180, 137, 0.5);
+            display: inline-block;
+            margin: 0 3px;
+        }
+        .answer-circle.filled {
+            background-color: #DD6C49;
+            border-color: #DD6C49;
+        }
+        .container-box {
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 15px;
+            background-color: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .grid-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(112, 180, 137, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(112, 180, 137, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container" style="display: flex; justify-content: center; align-items: center; width: 100vw; height: 100vh; overflow: hidden;">
+        <div id="slide-scale-wrapper" style="position: relative; width: 1280px; height: 720px; transform-origin: top left;">
+            <!-- Padrão de fundo -->
+            <div class="grid-pattern"></div>
+            
+            <!-- Cabeçalho colorido -->
+            <div class="header-line"></div>
+            
+            <!-- Elementos decorativos de fundo -->
+            <div class="bubble" style="width: 180px; height: 180px; background-color: rgba(112, 180, 137, 0.12); top: -30px; right: -40px;"></div>
+            <div class="bubble" style="width: 150px; height: 150px; background-color: rgba(243, 191, 73, 0.12); bottom: -30px; left: -40px;"></div>
+            
+            <!-- Padrão de gabarito decorativo -->
+            <div class="absolute right-8 bottom-24 transform -rotate-6 opacity-20">
+                <div class="flex flex-col">
+                    <div class="flex mb-1">
+                        <div class="answer-circle filled"></div>
+                        <div class="answer-circle"></div>
+                        <div class="answer-circle"></div>
+                        <div class="answer-circle"></div>
+                    </div>
+                    <div class="flex mb-1">
+                        <div class="answer-circle"></div>
+                        <div class="answer-circle filled"></div>
+                        <div class="answer-circle"></div>
+                        <div class="answer-circle"></div>
+                    </div>
+                    <div class="flex mb-1">
+                        <div class="answer-circle"></div>
+                        <div class="answer-circle"></div>
+                        <div class="answer-circle filled"></div>
+                        <div class="answer-circle"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Conteúdo principal -->
+            <div class="flex flex-col h-full w-full py-8 px-8 md:px-16 relative z-10" style="box-sizing: border-box;">
+            <!-- Título da seção -->
+            <div class="mb-8 flex items-center">
+                <i class="fab fa-docker text-3xl mr-4" style="color: #1D63ED;"></i>
+                <h1 class="title text-4xl" style="color: #333;">Containerização & Implantação</h1>
+                <div class="ml-4 h-1 w-64" style="background: linear-gradient(90deg, #70B489, #DD6C49);"></div>
+            </div>
+            
+            <!-- Layout em duas colunas -->
+            <div class="flex flex-row gap-8">
+                <!-- Coluna da esquerda: Benefícios -->
+                <div class="w-1/2 content">
+                    <h2 class="text-xl font-semibold mb-4" style="color: #70B489;">Benefícios da Containerização</h2>
+                    
+                    <div class="bullet-item">
+                        <div class="bullet-icon" style="background-color: rgba(112, 180, 137, 0.2);">
+                            <i class="fas fa-cubes" style="color: #70B489;"></i>
+                        </div>
+                        <div>
+                            <strong style="color: #70B489;">Portabilidade:</strong> Execução consistente em qualquer ambiente, eliminando o problema "funciona na minha máquina".
+                        </div>
+                    </div>
+                    
+                    <div class="bullet-item">
+                        <div class="bullet-icon" style="background-color: rgba(221, 108, 73, 0.2);">
+                            <i class="fas fa-arrows-alt-v" style="color: #DD6C49;"></i>
+                        </div>
+                        <div>
+                            <strong style="color: #DD6C49;">Escalabilidade:</strong> Facilidade para escalar horizontalmente e lidar com aumento de demanda.
+                        </div>
+                    </div>
+                    
+                    <div class="bullet-item">
+                        <div class="bullet-icon" style="background-color: rgba(243, 191, 73, 0.2);">
+                            <i class="fas fa-heart-pulse" style="color: #F3BF49;"></i>
+                        </div>
+                        <div>
+                            <strong style="color: #F3BF49;">Health Checks:</strong> Monitoramento automático da saúde dos containers e reinicialização em caso de falhas.
+                        </div>
+                    </div>
+                    
+                    <div class="bullet-item">
+                        <div class="bullet-icon" style="background-color: rgba(112, 180, 137, 0.2);">
+                            <i class="fas fa-rocket" style="color: #70B489;"></i>
+                        </div>
+                        <div>
+                            <strong style="color: #70B489;">Implantação Facilitada:</strong> Scripts simplificados para deploy, versionamento e ambiente reproduzível.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Coluna da direita: Arquitetura -->
+                <div class="w-1/2 content">
+                    <h2 class="text-xl font-semibold mb-4" style="color: #DD6C49;">Arquitetura Containerizada</h2>
+                    
+                    <div class="relative bg-gray-50 p-4 rounded-lg mb-4 border-2 border-dashed" style="border-color: #F3BF49;">
+                        <div class="text-center text-sm font-bold mb-2" style="color: #F3BF49;">Docker Compose</div>
+                        
+                        <!-- Container Frontend -->
+                        <div class="container-box mb-3 border-l-4" style="border-left-color: #70B489;">
+                            <div class="flex items-center">
+                                <i class="fab fa-react mr-2" style="color: #70B489;"></i>
+                                <span class="font-semibold" style="color: #70B489;">Frontend (Next.js)</span>
+                            </div>
+                            <div class="text-sm mt-1">
+                                <span>Porta: 3000</span>
+                                <span class="ml-3 px-2 py-0.5 rounded-full text-xs text-white" style="background-color: #70B489;">health: ✓</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Container Backend -->
+                        <div class="container-box mb-3 border-l-4" style="border-left-color: #DD6C49;">
+                            <div class="flex items-center">
+                                <i class="fab fa-node-js mr-2" style="color: #DD6C49;"></i>
+                                <span class="font-semibold" style="color: #DD6C49;">Backend (Node.js/Express)</span>
+                            </div>
+                            <div class="text-sm mt-1">
+                                <span>Porta: 5000</span>
+                                <span class="ml-3 px-2 py-0.5 rounded-full text-xs text-white" style="background-color: #DD6C49;">health: ✓</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Container PostgreSQL -->
+                        <div class="container-box border-l-4" style="border-left-color: #F3BF49;">
+                            <div class="flex items-center">
+                                <i class="fas fa-database mr-2" style="color: #F3BF49;"></i>
+                                <span class="font-semibold" style="color: #F3BF49;">PostgreSQL</span>
+                            </div>
+                            <div class="text-sm mt-1">
+                                <span>Porta: 5432</span>
+                                <span class="ml-3 px-2 py-0.5 rounded-full text-xs text-white" style="background-color: #F3BF49;">health: ✓</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Comandos Docker -->
+                    <div class="bg-gray-800 text-white p-3 rounded-md text-sm font-mono">
+                        <div class="mb-1"><span class="text-green-400">$</span> docker-compose up -d</div>
+                        <div class="mb-1"><span class="text-green-400">$</span> docker-compose logs -f backend</div>
+                        <div><span class="text-green-400">$</span> docker-compose down</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Rodapé com logotipo -->
+            <div class="flex justify-between items-center mt-auto pt-4">
+                <div class="text-sm text-gray-500">
+                    Olimpíada Cearense de Informática
+                </div>
+                <div>
+                    <span class="font-bold" style="color: #70B489;">OCI</span><span class="font-bold" style="color: #DD6C49;">Key</span>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+// Responsivo: escala proporcional do conteúdo interno
+function scaleSlideToFit() {
+    const baseWidth = 1280;
+    const baseHeight = 720;
+    const ww = window.innerWidth;
+    const wh = window.innerHeight;
+    const scale = Math.min(ww / baseWidth, wh / baseHeight);
+    const wrapper = document.getElementById('slide-scale-wrapper');
+    wrapper.style.transform = `scale(${scale})`;
+    // Centraliza o wrapper
+    wrapper.style.left = `${(ww - baseWidth * scale) / 2}px`;
+    wrapper.style.top = `${(wh - baseHeight * scale) / 2}px`;
+    wrapper.style.position = 'absolute';
+}
+window.addEventListener('resize', scaleSlideToFit);
+window.addEventListener('DOMContentLoaded', scaleSlideToFit);
+</script>
+<!-- Navegação entre slides -->
+  <button id="prevBtn" style="position:fixed;left:24px;top:50%;transform:translateY(-50%);opacity:0.2;z-index:1000;font-size:2.5rem;border:none;background:none;cursor:pointer;">&#8592;</button>
+  <button id="nextBtn" style="position:fixed;right:24px;top:50%;transform:translateY(-50%);opacity:0.2;z-index:1000;font-size:2.5rem;border:none;background:none;cursor:pointer;">&#8594;</button>
+  <script>
+    // Identifica o slide atual pelo nome do arquivo
+    const slides = [
+      'slide1.html',
+      'slide2.html',
+      'slide3.html',
+      'slide4.html',
+      'slide5.html',
+      'slide6.html',
+      'slide7.html',
+      'slide8.html',
+    ];
+    const current = slides.findIndex(s => window.location.pathname.endsWith(s));
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    if (current > 0) prevBtn.style.display = 'block';
+    if (current < slides.length - 1) nextBtn.style.display = 'block';
+    prevBtn && (prevBtn.onclick = () => window.location.href = slides[current - 1]);
+    nextBtn && (nextBtn.onclick = () => window.location.href = slides[current + 1]);
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft' && current > 0) window.location.href = slides[current - 1];
+      if (e.key === 'ArrowRight' && current < slides.length - 1) window.location.href = slides[current + 1];
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arquitetura do Sistema</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #333;
+        }
+        .content {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #444;
+        }
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+        .header-line {
+            height: 0.7vh;
+            background: linear-gradient(90deg, #70B489 0%, #DD6C49 50%, #F3BF49 100%);
+            width: 100%;
+        }
+        .architecture-box {
+            border-radius: 0.8vw;
+            padding: 1.5vw;
+            box-shadow: 0 0.4vw 0.8vw rgba(0,0,0,0.08);
+            transition: all 0.2s ease;
+            background: white;
+        }
+        .architecture-box:hover {
+            transform: translateY(-0.3vw);
+            box-shadow: 0 0.6vw 1.2vw rgba(0,0,0,0.12);
+        }
+        .connector {
+            position: absolute;
+            width: 0.3vw;
+            background-color: #ddd;
+        }
+        .connector-horizontal {
+            height: 0.3vw;
+            background-color: #ddd;
+            position: absolute;
+        }
+        .connector-arrow {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 0.6vw solid transparent;
+            border-right: 0.6vw solid transparent;
+            border-top: 0.8vw solid #ddd;
+        }
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.2vh;
+        }
+        .feature-icon {
+            flex-shrink: 0;
+            width: 2vw;
+            height: 2vw;
+            margin-right: 1vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        .answer-circle {
+            width: 1.5vw;
+            height: 1.5vw;
+            border-radius: 50%;
+            border: 0.2vw solid rgba(112, 180, 137, 0.5);
+            display: inline-block;
+            margin: 0 0.3vw;
+        }
+        .answer-circle.filled {
+            background-color: #DD6C49;
+            border-color: #DD6C49;
+        }
+        .grid-pattern {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            background-image: 
+                linear-gradient(rgba(112, 180, 137, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(112, 180, 137, 0.1) 1px, transparent 1px);
+            background-size: 2vw 2vw;
+            z-index: 0;
+        }
+        @media (max-width: 900px) {
+            .architecture-box {
+                padding: 2vw;
+                font-size: 2vw;
+            }
+            .feature-item {
+                font-size: 2vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <!-- Padrão de fundo -->
+        <div class="grid-pattern"></div>
+        <!-- Cabeçalho colorido -->
+        <div class="header-line"></div>
+        <!-- Elementos decorativos de fundo -->
+        <div class="bubble" style="width: 13vw; height: 13vw; background-color: rgba(112, 180, 137, 0.12); top: -2vw; right: -3vw;"></div>
+        <div class="bubble" style="width: 10vw; height: 10vw; background-color: rgba(243, 191, 73, 0.12); bottom: -2vw; left: -3vw;"></div>
+        <!-- Padrão de gabarito decorativo -->
+        <div class="absolute right-8 bottom-24 transform -rotate-6 opacity-20" style="right: 4vw; bottom: 12vh;">
+            <div class="flex flex-col">
+                <div class="flex mb-1">
+                    <div class="answer-circle filled"></div>
+                    <div class="answer-circle"></div>
+                    <div class="answer-circle"></div>
+                    <div class="answer-circle"></div>
+                </div>
+                <div class="flex mb-1">
+                    <div class="answer-circle"></div>
+                    <div class="answer-circle filled"></div>
+                    <div class="answer-circle"></div>
+                    <div class="answer-circle"></div>
+                </div>
+                <div class="flex mb-1">
+                    <div class="answer-circle"></div>
+                    <div class="answer-circle"></div>
+                    <div class="answer-circle filled"></div>
+                    <div class="answer-circle"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Conteúdo principal -->
+        <div class="flex flex-col flex-grow h-full py-0 relative z-10" style="padding: 3vh 5vw 2vh 5vw;">
+            <!-- Título da seção -->
+            <div class="mb-0 flex items-center">
+                <h1 class="title" style="font-size:3.5vw;color: #333;">Arquitetura do Sistema</h1>
+                <div class="h-1" style="width:22vw;background: linear-gradient(90deg, #70B489, #F3BF49);margin-left:2vw;"></div>
+            </div>
+            <!-- Diagrama de Arquitetura -->
+            <div class="flex-grow flex justify-center items-center w-full relative" style="min-height: 40vh;">
+                <div class="w-full max-w-full relative" style="height: 40vh;">
+                    <!-- Frontend -->
+                    <div class="architecture-box" style="position:absolute;top:-7.8vh;left:50%;transform:translateX(-50%);width:18vw;min-width:180px;padding:1.4vw;background-color:rgba(112,180,137,0.15);border:0.22vw solid #70B489;">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-desktop" style="font-size:1.8vw;color:#70B489;margin-right:0.9vw;"></i>
+                            <h3 class="font-bold" style="font-size:1.3vw;color:#70B489;">Frontend</h3>
+                        </div>
+                        <ul class="text-sm space-y-1" style="font-size:1vw;">
+                            <li><i class="fas fa-check-circle" style="color:#70B489;margin-right:0.5vw;"></i> Next.js + React</li>
+                            <li><i class="fas fa-check-circle" style="color:#70B489;margin-right:0.5vw;"></i> Interface responsiva</li>
+                            <li><i class="fas fa-check-circle" style="color:#70B489;margin-right:0.5vw;"></i> Dashboards por perfil</li>
+                        </ul>
+                    </div>
+                    <!-- Seta azul com cauda centralizada acima do Backend API -->
+                    <div style="position:absolute;top:10.3vh;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;line-height:0;">
+                        <div style="width:0.3vw;height:3.5vh;background:#3490eb;line-height:0;"></div>
+                        <div style="width:0;height:0;margin-top:-0.1vh;border-left:0.9vw solid transparent;border-right:0.9vw solid transparent;border-top:1.4vw solid #3490eb;line-height:0;"></div>
+                    </div>
+                    <!-- Backend (centro, logo abaixo da seta) -->
+                    <div class="architecture-box" style="position:absolute;top:19.2vh;left:50%;transform:translateX(-50%);width:18vw;min-width:180px;padding:1.4vw;background-color:rgba(221,108,73,0.15);border:0.22vw solid #DD6C49;">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-server" style="font-size:1.8vw;color:#DD6C49;margin-right:0.9vw;"></i>
+                            <h3 class="font-bold" style="font-size:1.3vw;color:#DD6C49;">Backend API</h3>
+                        </div>
+                        <ul class="text-sm space-y-1" style="font-size:1vw;">
+                            <li><i class="fas fa-check-circle" style="color:#DD6C49;margin-right:0.5vw;"></i> Node.js + Express</li>
+                            <li><i class="fas fa-check-circle" style="color:#DD6C49;margin-right:0.5vw;"></i> Autenticação JWT</li>
+                            <li><i class="fas fa-check-circle" style="color:#DD6C49;margin-right:0.5vw;"></i> API REST</li>
+                        </ul>
+                    </div>
+                    <!-- Addon C++ (lado esquerdo do Backend) -->
+                    <div class="architecture-box" style="position:absolute;top:7vh;left:25%;transform:translateX(-50%);width:13vw;min-width:130px;padding:1.1vw;background-color:rgba(243,191,73,0.15);border:0.18vw solid #F3BF49;">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-cogs" style="font-size:1.3vw;color:#F3BF49;margin-right:0.7vw;"></i>
+                            <h3 class="font-bold" style="font-size:1vw;color:#F3BF49;">Addon C++</h3>
+                        </div>
+                        <ul class="text-sm space-y-1" style="font-size:0.85vw;">
+                            <li><i class="fas fa-check-circle" style="color:#F3BF49;margin-right:0.4vw;"></i> Processamento de imagens</li>
+                            <li><i class="fas fa-check-circle" style="color:#F3BF49;margin-right:0.4vw;"></i> Integração Node-API</li>
+                            <li><i class="fas fa-check-circle" style="color:#F3BF49;margin-right:0.4vw;"></i> Alta performance</li>
+                        </ul>
+                    </div>
+                    <!-- PostgreSQL Database (lado direito do Backend) -->
+                    <div class="architecture-box" style="position:absolute;top:7vh;left:75%;transform:translateX(-50%);width:13vw;min-width:130px;padding:1.1vw;background-color:rgba(112,180,137,0.15);border:0.18vw solid #70B489;">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-database" style="font-size:1.3vw;color:#70B489;margin-right:0.7vw;"></i>
+                            <h3 class="font-bold" style="font-size:1vw;color:#70B489;">PostgreSQL</h3>
+                        </div>
+                        <ul class="text-sm space-y-1" style="font-size:0.85vw;">
+                            <li><i class="fas fa-check-circle" style="color:#70B489;margin-right:0.4vw;"></i> Dados persistentes</li>
+                            <li><i class="fas fa-check-circle" style="color:#70B489;margin-right:0.4vw;"></i> Relacional</li>
+                            <li><i class="fas fa-check-circle" style="color:#70B489;margin-right:0.4vw;"></i> Cloud ou on-premise</li>
+                        </ul>
+                    </div>
+                    <!-- Barra horizontal abaixo do Backend -->
+                    <div class="connector-horizontal" style="top:39vh;left:50%;transform:translateX(-50%);width:35.1vw;"></div>
+                    <!-- Docker Container (abaixo da barra) -->
+                    <div style="position:absolute;top:42vh;left:50%;transform:translateX(-50%);width:60vw;height:6vh;border:0.18vw dashed #DD6C49;border-radius:0.9vw;background-color:rgba(221,108,73,0.05);display:flex;align-items:center;justify-content:center;">
+                        <i class="fab fa-docker" style="font-size:1.3vw;color:#DD6C49;margin-right:0.9vw;"></i>
+                        <h3 class="font-bold" style="font-size:1.1vw;color:#DD6C49;">Docker & Docker Compose</h3>
+                        <span class="mx-4 text-gray-400">|</span>
+                        <span style="font-size:0.9vw;">Containerização completa</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Características de Segurança e Escalabilidade -->
+            <div class="w-full mt-4" style="margin-top:2vh;">
+                <div class="grid grid-cols-2 gap-8">
+                    <!-- Características de Segurança -->
+                    <div>
+                        <h3 class="font-bold mb-3" style="font-size:1.3vw;color:#DD6C49;">Segurança</h3>
+                        <div class="feature-item">
+                            <div class="feature-icon" style="background-color:rgba(221,108,73,0.2);">
+                                <i class="fas fa-shield-alt" style="color:#DD6C49;"></i>
+                            </div>
+                            <div style="font-size:1vw;">Autenticação JWT com roles (aluno, professor, admin)</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon" style="background-color:rgba(221,108,73,0.2);">
+                                <i class="fas fa-user-lock" style="color:#DD6C49;"></i>
+                            </div>
+                            <div style="font-size:1vw;">Proteção de rotas e validação de dados</div>
+                        </div>
+                    </div>
+                    <!-- Características de Escalabilidade -->
+                    <div>
+                        <h3 class="font-bold mb-3" style="font-size:1.3vw;color:#70B489;">Escalabilidade</h3>
+                        <div class="feature-item">
+                            <div class="feature-icon" style="background-color:rgba(112,180,137,0.2);">
+                                <i class="fas fa-expand-arrows-alt" style="color:#70B489;"></i>
+                            </div>
+                            <div style="font-size:1vw;">Arquitetura modular em camadas</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon" style="background-color:rgba(112,180,137,0.2);">
+                                <i class="fas fa-cloud" style="color:#70B489;"></i>
+                            </div>
+                            <div style="font-size:1vw;">Deploy simplificado via containers</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Rodapé com logotipo -->
+            <div class="flex justify-between items-center mt-auto pt-2" style="font-size:1vw;">
+                <div class="text-sm text-gray-500">
+                    Olimpíada Cearense de Informática
+                </div>
+                <div>
+                    <span class="font-bold" style="color: #70B489;">OCI</span><span class="font-bold" style="color: #DD6C49;">Key</span>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Navegação entre slides -->
+  <button id="prevBtn" style="position:fixed;left:24px;top:50%;transform:translateY(-50%);opacity:0.2;z-index:1000;font-size:2.5rem;border:none;background:none;cursor:pointer;">&#8592;</button>
+  <button id="nextBtn" style="position:fixed;right:24px;top:50%;transform:translateY(-50%);opacity:0.2;z-index:1000;font-size:2.5rem;border:none;background:none;cursor:pointer;">&#8594;</button>
+  <script>
+    // Identifica o slide atual pelo nome do arquivo
+    const slides = [
+      'slide1.html',
+      'slide2.html',
+      'slide3.html',
+      'slide4.html',
+      'slide5.html',
+      'slide6.html',
+      'slide7.html',
+      'slide8.html',
+    ];
+    const current = slides.findIndex(s => window.location.pathname.endsWith(s));
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    if (current > 0) prevBtn.style.display = 'block';
+    if (current < slides.length - 1) nextBtn.style.display = 'block';
+    prevBtn && (prevBtn.onclick = () => window.location.href = slides[current - 1]);
+    nextBtn && (nextBtn.onclick = () => window.location.href = slides[current + 1]);
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft' && current > 0) window.location.href = slides[current - 1];
+      if (e.key === 'ArrowRight' && current < slides.length - 1) window.location.href = slides[current + 1];
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conclusão & Impacto</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #333;
+        }
+        .content {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            color: #444;
+        }
+        .header-line {
+            height: 5px;
+            background: linear-gradient(90deg, #70B489 0%, #DD6C49 50%, #F3BF49 100%);
+            width: 100%;
+        }
+        .result-card {
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            background: white;
+            height: 100%;
+        }
+        .result-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+        }
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        .wave-decoration {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background: linear-gradient(90deg, rgba(112, 180, 137, 0.1) 0%, rgba(243, 191, 73, 0.1) 50%, rgba(221, 108, 73, 0.1) 100%);
+            clip-path: polygon(0% 100%, 0% 60%, 5% 65%, 10% 70%, 15% 65%, 20% 60%, 25% 65%, 30% 70%, 35% 65%, 40% 60%, 45% 65%, 50% 70%, 55% 65%, 60% 60%, 65% 65%, 70% 70%, 75% 65%, 80% 60%, 85% 65%, 90% 70%, 95% 65%, 100% 60%, 100% 100%);
+        }
+        .grid-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(112, 180, 137, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(112, 180, 137, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <!-- Padrão de fundo -->
+        <div class="grid-pattern"></div>
+        
+        <!-- Cabeçalho colorido -->
+        <div class="header-line"></div>
+        
+        <!-- Decoração de fundo -->
+        <div class="wave-decoration"></div>
+        
+        <!-- Conteúdo principal -->
+        <div class="flex flex-col flex-grow h-0 py-8 px-6 md:px-12 relative z-10" style="min-height:0;">
+            <!-- Título da seção -->
+            <div class="mb-6 flex items-center">
+                <i class="fas fa-flag-checkered text-3xl mr-4" style="color: #F3BF49;"></i>
+                <h1 class="title text-4xl" style="color: #333;">Conclusão & Impacto</h1>
+                <div class="ml-4 h-1 w-48" style="background: linear-gradient(90deg, #F3BF49, #70B489);"></div>
+            </div>
+            
+            <!-- Resultados alcançados -->
+            <div class="mb-8">
+                <h2 class="text-xl font-semibold mb-4" style="color: #70B489;">Resultados Alcançados</h2>
+                <div class="grid grid-cols-3 gap-6">
+                    <!-- Agilidade -->
+                    <div class="result-card p-10 w-full max-w-full">
+                        <div class="flex justify-center mb-4">
+                            <div class="w-16 h-16 rounded-full flex items-center justify-center" style="background-color: rgba(112, 180, 137, 0.2);">
+                                <i class="fas fa-tachometer-alt text-3xl" style="color: #70B489;"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-3xl font-bold text-center mb-6" style="color: #70B489;">Agilidade</h3>
+                        <p class="text-center text-xl">Processamento de gabaritos em segundos, com redução de 85% no tempo de correção comparado ao método manual anterior.</p>
+                    </div>
+                    
+                    <!-- Confiabilidade -->
+                    <div class="result-card p-10 w-full max-w-full">
+                        <div class="flex justify-center mb-4">
+                            <div class="w-16 h-16 rounded-full flex items-center justify-center" style="background-color: rgba(221, 108, 73, 0.2);">
+                                <i class="fas fa-shield-alt text-3xl" style="color: #DD6C49;"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-3xl font-bold text-center mb-6" style="color: #DD6C49;">Confiabilidade</h3>
+                        <p class="text-center text-xl">Taxa de precisão de 99,7% na leitura de gabaritos com sistema de verificação e validação integrado para eliminar erros.</p>
+                    </div>
+                    
+                    <!-- Escalabilidade -->
+                    <div class="result-card p-10 w-full max-w-full">
+                        <div class="flex justify-center mb-4">
+                            <div class="w-16 h-16 rounded-full flex items-center justify-center" style="background-color: rgba(243, 191, 73, 0.2);">
+                                <i class="fas fa-expand-arrows-alt text-3xl" style="color: #F3BF49;"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-3xl font-bold text-center mb-6" style="color: #F3BF49;">Escalabilidade</h3>
+                        <p class="text-center text-xl">Capacidade de processar centenas de gabaritos simultaneamente, com arquitetura que suporta o crescimento da OCI nos próximos anos.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Impacto e Futuro -->
+            <div class="grid grid-cols-2 gap-8">
+                <!-- Impacto na OCI -->
+                <div>
+                    <h2 class="text-3xl font-semibold mb-4" style="color: #DD6C49;">Impacto na Modernização</h2>
+                    <div class="bg-white p-5 rounded-lg shadow-sm">
+                        <div class="feature-item">
+                            <div class="feature-icon" style="background-color: rgba(221, 108, 73, 0.2);">
+                                <i class="fas fa-chart-line text-xl" style="color: #DD6C49;"></i>
+                            </div>
+                            <div>
+                                <span class="font-semibold text-xl">Eficiência Operacional</span> <span class="text-lg">- Redução significativa no tempo de processamento dos resultados</span>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon" style="background-color: rgba(221, 108, 73, 0.2);">
+                                <i class="fas fa-users text-xl" style="color: #DD6C49;"></i>
+                            </div>
+                            <div>
+                                <span class="font-semibold text-xl">Experiência Aprimorada</span> <span class="text-lg">- Participantes recebem feedback mais rápido e preciso</span>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon" style="background-color: rgba(221, 108, 73, 0.2);">
+                                <i class="fas fa-university text-xl" style="color: #DD6C49;"></i>
+                            </div>
+                            <div>
+                                <span class="font-semibold text-xl">Maior Alcance</span> <span class="text-lg">- Capacidade para expandir a competição para mais escolas e regiões</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Perspectivas Futuras -->
+                <div>
+                    <h2 class="text-3xl font-semibold mb-4" style="color: #F3BF49;">Perspectivas Futuras</h2>
+                    <div class="bg-white p-5 rounded-lg shadow-sm">
+                        <div class="feature-item">
+                            <div class="feature-icon" style="background-color: rgba(243, 191, 73, 0.2);">
+                                <i class="fas fa-robot" style="color: #F3BF49;"></i>
+                            </div>
+                            <div>
+                                <span class="font-semibold text-xl">Inteligência Artificial</span> <span class="text-lg">- Implementação de ML para melhorar processamento</span>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon" style="background-color: rgba(243, 191, 73, 0.2);">
+                                <i class="fas fa-mobile-alt" style="color: #F3BF49;"></i>
+                            </div>
+                            <div>
+                                <span class="font-semibold text-xl">Aplicativo Móvel</span> <span class="text-lg">- Acesso facilitado para participantes e professores</span>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon" style="background-color: rgba(243, 191, 73, 0.2);">
+                                <i class="fas fa-handshake" style="color: #F3BF49;"></i>
+                            </div>
+                            <div>
+                                <span class="font-semibold text-xl">Integração com Outras Olimpíadas</span> <span class="text-lg">- Expansão para competições similares</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bloco movido para o final -->
+            <div class="flex flex-col items-center mt-auto mb-2">
+                <div class="text-2xl text-gray-500 mb-2">Olimpíada Cearense de Informática</div>
+                <div class="text-3xl font-bold">
+                    <span style="color: #70B489;">OCI</span><span style="color: #DD6C49;">Key</span>
+                </div>
+            </div>
+            <!-- Rodapé -->
+            <div class="flex justify-between items-center mt-auto pt-4">
+                <div class="text-sm text-gray-500">
+                    <!-- (removido daqui, agora está acima) -->
+                </div>
+                <div class="flex items-center">
+                    <!-- (removido daqui, agora está acima) -->
+                    <span class="text-sm ml-3 text-gray-500">Obrigado!</span>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Navegação entre slides -->
+  <button id="prevBtn" style="position:fixed;left:24px;top:50%;transform:translateY(-50%);opacity:0.2;z-index:1000;font-size:2.5rem;border:none;background:none;cursor:pointer;">&#8592;</button>
+  <button id="nextBtn" style="position:fixed;right:24px;top:50%;transform:translateY(-50%);opacity:0.2;z-index:1000;font-size:2.5rem;border:none;background:none;cursor:pointer;display:none;">&#8594;</button>
+  <script>
+    // Identifica o slide atual pelo nome do arquivo
+    const slides = [
+      'slide1.html',
+      'slide2.html',
+      'slide3.html',
+      'slide4.html',
+      'slide5.html',
+      'slide6.html',
+      'slide7.html',
+      'slide8.html',
+    ];
+    const current = slides.findIndex(s => window.location.pathname.endsWith(s));
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    if (current > 0) prevBtn.style.display = 'block';
+    if (current < slides.length - 1) nextBtn.style.display = 'block';
+    prevBtn && (prevBtn.onclick = () => window.location.href = slides[current - 1]);
+    nextBtn && (nextBtn.onclick = () => window.location.href = slides[current + 1]);
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft' && current > 0) window.location.href = slides[current - 1];
+      if (e.key === 'ArrowRight' && current < slides.length - 1) window.location.href = slides[current + 1];
+    });
+  </script>
+</body>
+</html>
